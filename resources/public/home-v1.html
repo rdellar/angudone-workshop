@@ -10,15 +10,14 @@
   <script src="js/angular.js"></script>
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/main-v1.js"></script>
   <script>
-   angular.module("TodosApp", []).run(function($http){
+   angular.module("myApp", []).run(function($http){
      window.http = $http;
    });
   </script>
 </head>
-<!-- ng-app - bootstraps angular -->
-<body ng-app="TodosApp">
+<body ng-app="myApp">
   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
       <div class="navbar-header">
@@ -38,40 +37,27 @@
     </div>
   </div>
   <div class="container">
-    <div class="starter-template"
-    ng-controller="MainCtrl as main">
+    <div class="starter-template">
       <h1>Angudone</h1>
       <div class="lead">
         This is where we can play!
+        <!--
+        var user = {};
+        var user.firstName = $("#firstName".val();
+        $("#displayFirstName".innerHtml = user.firstName;
+
+        // Get this by default...
+        var $rootScope = {};
+        $rootScore.user = {};
+        $rootScope.user.firstName = '';
+        -->
+        <input type="text" ng-model="user.firstName">
+        <h2>First: {{ user.firstName }}</h2>
+
+        <input type="text" ng-model="user.firstName">
+        <h2>Next: {{ user.firstName }}</h2>
 
 
-        <!--input type="text" ng-model="user.firstName"-->
-        <h2>First: {{ main.firstName }}</h2>
-
-        <!--input type="text" ng-model="user.firstName"-->
-        <h2>Next: {{ main.firstName }}</h2>
-
-        <ul>
-          <!-- ng-repeat - adds lots of variables -->
-          <li ng-repeat="t in main.todos">
-            <h2>
-              <input type="checkbox"
-                     ng-click="main.markDone(t)"
-                     ng-checked="t.done">
-              {{t.text}}
-            </h2>
-          </li>
-        </ul>>
-        <form name="someForm" novalidate>
-          <input type="text" required ng-model="main.obj.newTodoText">
-          <button
-                  ng-disabled="someForm.$invalid"
-                  ng-click="main.addNewTodo(main.obj, main.todos)"
-          >Add
-          </button>
-        </form>
-        <h3>{{ someForm }}</h3>
-        <h3>{{ main.todos }}</h3>
       </div>
     </div>
   </div>
